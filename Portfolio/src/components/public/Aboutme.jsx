@@ -8,7 +8,7 @@ const Aboutme = () => {
   return (
     <div
       id="about"
-      className="relative w-full min-h-[600px] flex md:flex-row sm:flex-col gap-12 px-4 max-w-[1200px] mx-auto mt-[-20px] justify-between items-center bg-transparent"
+      className="relative w-full min-h-[600px] flex md:flex-row sm:flex-col gap-12 px-4 max-w-[1200px] mx-auto  justify-between items-center bg-transparent "
     >
       <motion.div
         className="absolute inset-0 w-full h-full bg-transparent"

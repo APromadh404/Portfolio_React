@@ -173,7 +173,7 @@ const Herosection = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.2 }}
-            className="mt-6 flex justify-center lg:justify-start gap-4 "
+            className="mt-6 flex justify-center lg:justify-start gap-4 sm:mb-14"
           >
             <motion.a
               href="https://github.com"
