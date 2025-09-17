@@ -34,7 +34,7 @@ const NavBarMain = () => {
           <div className="flex items-center justify-between bg-background/95 backdrop-blur-lg rounded-2xl px-6 py-4 shadow-lg border border-border transition-colors duration-300">
             <div className="flex-shrink-0">
               <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent hidden md:block">
-                Amal Fernando
+                Avishka Fernando
               </h1>
               <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent md:hidden">
                 AF
