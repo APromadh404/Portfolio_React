@@ -1,12 +1,12 @@
 import React from "react";
-import NavBarMain from "../components/public/navbar";
-import Herosection from "../components/public/Herosection";
-import Skilscetion from "../components/public/Skilscetion";
-import Aboutme from "../components/public/Aboutme";
-import ExperienceSection from "../components/public/ExperienceSection";
-import ProjectSection from "../components/public/ProjectSection";
-import ContactSection from "../components/public/ContactSection";
-import FooterSection from "../components/public/FooterSection";
+import NavBarMain from "../components/Common/navbar";
+import Herosection from "../components/Common/Herosection";
+import Skilscetion from "../components/Common/Skilscetion";
+import Aboutme from "../components/Common/Aboutme";
+import ExperienceSection from "../components/Common/ExperienceSection";
+import ProjectSection from "../components/Common/ProjectSection";
+import ContactSection from "../components/Common/ContactSection";
+import FooterSection from "../components/Common/FooterSection";
 const HomePage = () => {
   return (
     <div className="min-h-screen transition-colors duration-200 bg-background text-foreground">

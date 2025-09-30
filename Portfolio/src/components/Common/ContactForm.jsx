@@ -4,7 +4,6 @@ import { toast } from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 import { fadeIn } from "../framermotion/variants";
 
-
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,10 +14,12 @@ const ContactForm = () => {
 
   // Initialize EmailJS
   useEffect(() => {
- // console.log("Public Key:",import.meta.env.REACT_APP_EMAILJS_PUBLIC_KEY || "Not Set"); //check if env variable is loaded
-  const publicKey = import.meta.env?.REACT_APP_EMAILJS_PUBLIC_KEY || "Enter_Your_Public_Key_Here";
-  emailjs.init(publicKey);
-}, []);
+    // console.log("Public Key:",import.meta.env.REACT_APP_EMAILJS_PUBLIC_KEY || "Not Set"); //check if env variable is loaded
+    const publicKey =
+      import.meta.env?.REACT_APP_EMAILJS_PUBLIC_KEY ||
+      "Enter_Your_Public_Key_Here";
+    emailjs.init(publicKey);
+  }, []);
 
   const validateForm = () => {
     let isValid = true;
@@ -26,6 +27,9 @@ const ContactForm = () => {
 
     if (!name.trim()) {
       newErrors.name = "Name is required";
+      isValid = false;
+    } else if (/^[A-Za-z]+([A-Za-z]+)?$/.test(name) || name === "") {
+      newErrors.name = "Full Name is required";
       isValid = false;
     }
     if (!email.trim()) {
@@ -101,9 +105,11 @@ const ContactForm = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      
-
-      <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-5 sm:gap-6">
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        className="flex flex-col gap-5 sm:gap-6"
+      >
         {/* Hidden Time Input */}
         <input
           type="hidden"
@@ -126,11 +132,16 @@ const ContactForm = () => {
             disabled={isLoading}
             className={`w-full h-12 sm:h-14 rounded-lg bg-white/90 border ${
               errors.name
-                ? "border-red-500"
+                ? "border-red-500 "
                 : "border-orange/30 hover:border-amber-500/50"
-            } px-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 disabled:opacity-50`}
+            } px-4 text-gray-800 placeholder-gray-400 border-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 disabled:opacity-50`}
             whileFocus={{ scale: 1.02 }}
             whileHover={{ boxShadow: "0 2px 8px rgba(245, 158, 11, 0.2)" }}
+            spellCheck="false"
+            autoCapitalize="words"
+            autoComplete="off"
+            maxLength={30}
+            
           />
           {errors.name && (
             <motion.p
@@ -157,9 +168,12 @@ const ContactForm = () => {
               errors.email
                 ? "border-red-500"
                 : "border-orange/30 hover:border-amber-500/50"
-            } px-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 disabled:opacity-50`}
+            } px-4 text-gray-800 placeholder-gray-400  border-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 disabled:opacity-50`}
             whileFocus={{ scale: 1.02 }}
             whileHover={{ boxShadow: "0 2px 8px rgba(245, 158, 11, 0.2)" }}
+            spellCheck="false"
+            autoComplete="off"
+            maxLength={30}
           />
           {errors.email && (
             <motion.p
@@ -186,9 +200,11 @@ const ContactForm = () => {
               errors.message
                 ? "border-red-500"
                 : "border-orange/30 hover:border-amber-500/50"
-            } p-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 resize-none disabled:opacity-50`}
+            } p-4 text-gray-800 placeholder-gray-400 focus:outline-none border-amber-100 focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 resize-none disabled:opacity-50`}
             whileFocus={{ scale: 1.02 }}
             whileHover={{ boxShadow: "0 2px 8px rgba(245, 158, 11, 0.2)" }}
+            autoCapitalize="sentences"
+            maxLength={500}
           />
           {errors.message && (
             <motion.p
@@ -209,6 +225,7 @@ const ContactForm = () => {
           className="w-full h-12 sm:h-14 rounded-lg bg-gradient-to-r from-amber-500 to-pink-500 text-white font-bold text-lg sm:text-xl hover:from-amber-500/80 hover:to-pink-500/80 hover:shadow-lg hover:shadow-amber-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          title="Send to Us"
         >
           {isLoading ? "Sending..." : "Send Message"}
         </motion.button>

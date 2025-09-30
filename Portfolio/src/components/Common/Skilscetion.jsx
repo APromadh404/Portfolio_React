@@ -64,7 +64,9 @@ const Skilscetion = () => {
           whileInView="show"
           viewport={{ once: false, amount: 0.7 }}
         >
-          <div className="flex flex-col items-center mt-[50px] relative z-10">
+          <div className="flex flex-col items-center mt-[50px] relative z-10"
+           style={{userSelect:'none',WebkitUserSelect:'none',MozUserSelect:'none',msUserSelect:'none'}}
+          >
             <h2 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-pink-500 mb-8 pb-3">
               My Skills
             </h2>

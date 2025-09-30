@@ -32,7 +32,9 @@ const NavBarMain = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between bg-background/95 backdrop-blur-lg rounded-2xl px-6 py-4 shadow-lg border border-border transition-colors duration-300">
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0"
+             style={{userSelect:'none',WebkitUserSelect:'none',MozUserSelect:'none',msUserSelect:'none'}}
+            >
               <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent hidden md:block">
                 Avishka Fernando
               </h1>
@@ -58,7 +60,7 @@ const NavBarMain = () => {
               ))}
             </div>
             <div className="flex items-center space-x-4">
-              <div className="relative group">
+              <div className="relative group" title="Theme Toggle">
                 <Themetoggle/>
               </div>
               <button className="hidden sm:flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-amber-500 to-pink-500 text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300">

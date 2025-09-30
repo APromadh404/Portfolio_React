@@ -8,7 +8,7 @@ const Aboutme = () => {
   return (
     <div
       id="about"
-      className="relative w-full min-h-[600px] flex md:flex-row sm:flex-col gap-12 px-4 max-w-[1200px] mx-auto  justify-between items-center bg-transparent "
+      className="relative w-full min-h-[600px] flex md:flex-row sm:flex-col  gap-12 px-4 max-w-[1200px] mx-auto  justify-between items-center bg-transparent "
     >
       <motion.div
         className="absolute inset-0 w-full h-full bg-transparent"
@@ -59,6 +59,7 @@ const Aboutme = () => {
               src="../../public/images/about-me.png"
               alt="About Me Image"
               className="h-full w-auto object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-500"
+              draggable='false'
             />
           </div>
           <div className="h-[480px] w-[250px] bg-gradient-to-r from-amber-500/20 to-pink-500/20 absolute bottom-[-30px] left-[-30px] rounded-bl-[120px] rounded-tr-[120px] rounded-br-[20px] rounded-tl-[20px] -z-10 group-hover:shadow-xl group-hover:shadow-amber-500/30 group-hover:-translate-y-2 transition-all duration-500"></div>
@@ -72,10 +73,12 @@ const Aboutme = () => {
         className="relative z-10 group"
       >
         <div className="flex flex-col md:items-start sm:items-center md:text-left sm:text-center">
-          <h2 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-pink-500 mb-8 group-hover:scale-105 group-hover:text-cyan transition-all duration-300">
+          <h2 className="text-5xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-pink-500 mb-8 group-hover:scale-105 group-hover:text-cyan transition-all duration-300">
             About Me
           </h2>
-          <p className="text-lg text-foreground hover:text-gray-500 transition-colors duration-300 max-w-2xl">
+          <p className="text-lg md:text-x1 text-foreground hover:text-gray-500 transition-colors duration-300 max-w-2xl"
+          lang="English"
+          >
             I'm Avishka Fernando, a passionate aspiring web developer pursuing a
             Higher National Diploma in Information Technology at the Advanced
             Technical Institute, Dehiwala. I specialize in crafting responsive,

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PiHexagonThin } from "react-icons/pi";
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 import { fadeIn } from "../framermotion/variants";
+import { VscNoNewline } from "react-icons/vsc";
 
 const roles = ["Front-End Web Developer", "Backend Developer", "Mobile Developer"];
 
@@ -41,7 +42,7 @@ const Herosection = () => {
   }, [displayedText, isTyping, currentRole]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-transparent relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-transparent relative overflow-hidden" >
       {/* 3D Animated Gradient Grid, Glowing Spots, and Wave Patterns Background */}
       <motion.div
         className="absolute inset-0 bg-transparent"
@@ -134,7 +135,10 @@ const Herosection = () => {
           ))}
         </div>
       </motion.div>
-      <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+      <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10"
+       style={{userSelect:'none',WebkitUserSelect:'none',MozUserSelect:'none',msUserSelect:'none'}}
+       draggable="false"
+      >
         {/* Text Section */}
         <div className="flex flex-col gap-6 text-center lg:text-left max-w-lg">
           <motion.h1
@@ -163,6 +167,7 @@ const Herosection = () => {
             whileInView="show"
             viewport={{ once: false, amount: 0.2 }}
             className="text-lg sm:text-lg lg:text-base text-foreground mt-4 text-wrap"
+          
           >
             A passionate developer with expertise in crafting modern web and mobile applications. <br />
             Proficient in design tools like Figma and Adobe XD, with a passion for creating user-friendly, accessible, and visually appealing interfaces. Demonstrated ability to translate client needs into functional designs and collaborate within cross-functional teams. Eager to contribute to impactful digital experiences while learning and growing in a fast-paced design environment.
@@ -174,6 +179,7 @@ const Herosection = () => {
             whileInView="show"
             viewport={{ once: false, amount: 0.2 }}
             className="mt-6 flex justify-center lg:justify-start gap-4 sm:mb-14"
+            drag="x"
           >
             <motion.a
               href="https://github.com"
@@ -218,7 +224,7 @@ const Herosection = () => {
           </motion.div>
         </div>
         {/* Image and Hexagon Section */}
-        <div className="relative w-full max-w-lg flex items-center justify-center">
+        <div className="relative w-full max-w-lg flex items-center justify-center ">
           <motion.div
             variants={fadeIn("left", 0.2)}
             initial="hidden"
@@ -227,9 +233,10 @@ const Herosection = () => {
             className="h-full flex items-center justify-center"
           >
             <img
-              src="../../public/images/HexaPic.png"
+              src="../../../public/images/HexaPic.png"
               alt="Avishka Fernando"
               className="max-h-[450px] w-auto mt-[-80px]"
+              draggable='false'
             />
             <div className="absolute -z-10 flex justify-center items-center animate-pulse">
               <PiHexagonThin className="md:h-[90%] sm:h-[120%] min-h-[610px] w-auto text-orange-700 blur-md animate-[spin_20s_linear_infinite]" />

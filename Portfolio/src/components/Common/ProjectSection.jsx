@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion} from "framer-motion";
 import { fadeIn } from "../framermotion/variants";
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill, BsFillArrowUpRightCircleFill, BsArrowLeft, BsShareFill } from "react-icons/bs";
 import { Link } from "react-scroll";
@@ -138,8 +138,7 @@ const ProjectSection = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [favorites, setFavorites] = useState([]);
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  
 
   const toggleFavorite = (projectName) => {
     setFavorites((prev) =>
@@ -152,7 +151,7 @@ const ProjectSection = () => {
   return (
     <div
       id="projects"
-      className="max-w-[1200px] mx-auto px-4 sm:px-6 mt-[-280px] relative bg-transparent min-h-[800px]"
+      className="max-w-[1200px] mx-auto px-4 sm:px-6  relative bg-transparent min-h-[800px] mt-[-100px] " 
       style={{ position: "relative" }}
     >
       {/* 3D Animated Gradient Grid Background */}
@@ -216,36 +215,7 @@ const ProjectSection = () => {
           ))}
         </div>
       </motion.div>
-      {/* Circular Progress Indicator */}
-      <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-20">
-        <svg className="w-12 h-12 sm:w-16 sm:h-16" viewBox="0 0 100 100">
-          <circle
-            className="stroke-gray-800"
-            cx="50"
-            cy="50"
-            r="40"
-            strokeWidth="8"
-            fill="none"
-          />
-          <motion.circle
-            cx="50"
-            cy="50"
-            r="40"
-            strokeWidth="8"
-            fill="none"
-            stroke="url(#progressGradient)"
-            strokeLinecap="round"
-            transform="rotate(-90 50 50)"
-            style={{ strokeDasharray: 251.2, strokeDashoffset: useTransform(rotate, [0, 360], [251.2, 0]) }}
-          />
-          <defs>
-            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#F59E0B" />
-              <stop offset="100%" stopColor="#EC4899" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+    
       {/* Header Section */}
       <motion.div
         variants={fadeIn("down", 0.2)}
@@ -253,6 +223,7 @@ const ProjectSection = () => {
         whileInView="show"
         viewport={{ once: false, amount: 0.7 }}
         className="relative z-10"
+         style={{userSelect:'none',WebkitUserSelect:'none',MozUserSelect:'none',msUserSelect:'none'}}
       >
         <div className="flex flex-col items-center mt-[100px]">
           <h2 className="pb-3 pt-3 text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-pink-500 mb-6 hover:scale-105 hover:text-cyan transition-all duration-300">
@@ -373,6 +344,7 @@ const Slider = ({ projects, favorites, toggleFavorite }) => {
                   src={project.image}
                   alt={`${project.name} project image`}
                   className="w-full h-[150px] sm:h-[180px] object-cover rounded-xl group-hover:brightness-110 transition-all duration-500"
+                draggable='false'
                 />
                 <div className="mt-2 sm:mt-4 text-center">
                   <h3 className="text-base sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-pink-500 group-hover:text-cyan transition-all duration-300">

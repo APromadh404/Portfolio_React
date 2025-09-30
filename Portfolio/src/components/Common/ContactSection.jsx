@@ -59,7 +59,8 @@ const ContactSection = () => {
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
                 background: `linear-gradient(45deg, #F59E0B, #EC4899)`,
-                boxShadow: "0 0 6px rgba(245, 158, 11, 0.4), 0 0 10px rgba(236, 72, 153, 0.2)",
+                boxShadow:
+                  "0 0 6px rgba(245, 158, 11, 0.4), 0 0 10px rgba(236, 72, 153, 0.2)",
               }}
               animate={{
                 opacity: [0.3, 0.7, 0.3],
@@ -85,12 +86,14 @@ const ContactSection = () => {
         whileInView="show"
         viewport={{ once: false, amount: 0.7 }}
         className="relative z-10 text-center"
+         style={{userSelect:'none',WebkitUserSelect:'none',MozUserSelect:'none',msUserSelect:'none'}}
       >
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-pink-500 mb-6 hover:scale-105 hover:text-cyan transition-all duration-300">
           Contact Me
         </h2>
         <p className="text-base sm:text-lg text-foreground max-w-xl md:max-w-2xl mx-auto mb-8 hover:text-gray-400 transition-colors duration-300">
-          Let's connect! Whether you want to collaborate or just say hi, I'm just a few clicks away.
+          Let's connect! Whether you want to collaborate or just say hi, I'm
+          just a few clicks away.
         </p>
       </motion.div>
 
@@ -101,7 +104,11 @@ const ContactSection = () => {
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.3 }}
-        whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(245, 158, 11, 0.4)" }}
+        whileHover={{
+          scale: 1.02,
+          boxShadow: "0 0 20px rgba(245, 158, 11, 0.4)",
+        }}
+        draggable="false"
       >
         {/* Card Overlay for Visual Depth */}
         <motion.div
@@ -117,12 +124,14 @@ const ContactSection = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.5 }}
+             style={{userSelect:'none',WebkitUserSelect:'none',MozUserSelect:'none',msUserSelect:'none'}}
           >
             <h3 className="text-2xl sm:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-pink-500 mb-4 hover:text-cyan transition-all duration-300">
               Get In Touch
             </h3>
             <p className="text-base sm:text-lg text-foreground hover:text-gray-300 transition-colors duration-300">
-              Feel free to reach out for collaborations, inquiries, or just to connect!
+              Feel free to reach out for collaborations, inquiries, or just to
+              connect!
             </p>
           </motion.div>
           <motion.div
@@ -147,6 +156,7 @@ const ContactSection = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: false, amount: 0.5 }}
             whileHover={{ scale: 1.05, rotate: 3 }}
+            draggable="false"
           />
           <motion.div
             className="flex flex-col gap-4 w-full max-w-[300px]"
@@ -158,17 +168,17 @@ const ContactSection = () => {
             <SingleInfo
               text="avipromadhfernando@gmail.com"
               Image={HiOutlineMail}
-              className="group hover:bg-gradient-to-r hover:from-amber-500/20 hover:to-pink-500/20 hover:shadow-md hover:shadow-amber-500/30 transition-all duration-300 rounded-lg p-2"
+              className="group cursor-text hover:bg-gradient-to-r hover:from-amber-500/20 hover:to-pink-500/20 hover:shadow-md hover:shadow-amber-500/30 transition-all duration-300 rounded-lg p-2"
             />
             <SingleInfo
               text="+94 713463572"
               Image={FiPhone}
-              className="group hover:bg-gradient-to-r hover:from-amber-500/20 hover:to-pink-500/20 hover:shadow-md hover:shadow-amber-500/30 transition-all duration-300 rounded-lg p-2"
+              className="group cursor-text hover:bg-gradient-to-r hover:from-amber-500/20 hover:to-pink-500/20 hover:shadow-md hover:shadow-amber-500/30 transition-all duration-300 rounded-lg p-2"
             />
             <SingleInfo
               text="Western Province,Sri Lanka"
               Image={IoLocationOutline}
-              className="group hover:bg-gradient-to-r hover:from-amber-500/20 hover:to-pink-500/20 hover:shadow-md hover:shadow-amber-500/30 transition-all duration-300 rounded-lg p-2"
+              className="group cursor-text hover:bg-gradient-to-r hover:from-amber-500/20 hover:to-pink-500/20 hover:shadow-md hover:shadow-amber-500/30 transition-all duration-300 rounded-lg p-2"
             />
           </motion.div>
           <motion.div
